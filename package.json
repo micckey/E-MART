@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.0.0",
+        "axios": "^1.1.2",
+        "laravel-vite-plugin": "^0.7.2",
+        "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "bootstrap-icons": "^1.10.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.11.0",
+        "react-simple-image-slider": "^2.4.1"
+    }
+}

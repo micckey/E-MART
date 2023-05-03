@@ -1,0 +1,141 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css');
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+* { 
+    margin: 0;
+    padding: 0%;
+    font-family: 'Alkatra' !important;
+    color: #EAEBED !important;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #5B8291;
+    
+}
+
+.containerCust {
+    padding: 10px 10%;
+}
+
+.navBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #2E424D;
+    margin-top: 20px;
+}
+
+.navIcons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navIcon {
+    margin-left: 1em;
+}
+
+.hotDeals{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.card {
+    width: 30%;
+    margin-bottom: 20px;
+    border: 1px solid #EAEBED;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.card h4 {
+    color: #080808 !important;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+.btnBook {
+    display: block;
+    object-position: center;    
+    width: fit-content;
+    text-align: center;
+    border: 1px solid blanchedalmond;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: antiquewhite;
+    background: #080808;
+    transition: background 0.5s;
+}
+.btnBook:hover {
+    background: dimgray;
+}
+
+.containerCust .contactsContainer{
+    border-radius: 5px;
+}
+
+.contacts{    
+    background-color: #2E424D;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.desc{
+    margin-left: 10px;
+    flex-basis: 50%;
+}
+
+.socials{
+    flex-basis: 15%;
+
+}
+
+.socials i{
+    font-size: xx-large;
+}
+
+.payment{
+    flex-basis: 15%;
+}
+
+.homeButton{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    text-align: center;
+    border: 1px solid blanchedalmond;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: antiquewhite;
+    background: #080808;
+    transition: background 0.5s;
+}
+.homeButton:hover {
+    background: dimgray;
+}

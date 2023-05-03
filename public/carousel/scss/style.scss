@@ -1,0 +1,58 @@
+
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+
+a {
+	transition: .3s all ease;
+	&, &:hover {
+		text-decoration: none!important;
+	}
+}
+
+.media-29101 {
+  img {
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 900!important;
+    a {
+      color: $secondary;
+    }
+  }
+}
+
+.owl-2-style {
+  .owl-nav {
+    display: none;
+  }
+  .owl-dots {
+    text-align: center;
+    position: relative;
+    bottom: -30px;
+    .owl-dot {
+      display: inline-block;
+      span {
+        display: inline-block;
+        width: 15px;
+        height: 3px;
+        border-radius: 0px;
+        background: lighten($black, 80%);
+        transition: .3s all cubic-bezier(.32, .71, .53, .53);
+        margin: 3px;
+      }
+      &.active {
+        span {
+          background: $primary;
+        }
+      }
+
+      &:active, &:focus {
+				outline: none;
+			}
+    }
+  }
+}

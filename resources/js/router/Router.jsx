@@ -13,9 +13,9 @@ const Router = () => {
         <div>
             <Routes>
                 <Route path="/" element={<IndexPage />} />
-                <Route path="/*" element={<NotFound />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
+                <Route path="/user/login" element={<Login />} />
+                <Route path="/user/register" element={<Register />} />
+                <Route path="/*" element={<NotFound />} />                
             </Routes>
         </div>
     )

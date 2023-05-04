@@ -120,7 +120,11 @@ body {
 }
 
 .payment{
-    flex-basis: 15%;
+    margin-right: 10px;
+    flex-basis: 15%;    
+}
+.payment h5{
+    text-align: center;
 }
 
 .homeButton{

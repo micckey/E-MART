@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -12,24 +13,20 @@ const Index = () => {
         'https://api.priceinkenya.com/media/122794/conversions/infinix-tv-s1-43-inch-full-hd-smart-UOZipv6v5C-original.webp',
         'https://nairobiultrabooks.odoo.com/web/image/product.template/1419/image_1024?unique=f506020'
     ]
-
-
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const handlePrev = () => {
-        setActiveIndex((activeIndex - 1 + imageList.length) % imageList.length);
-    };
 
-    const handleNext = () => {
-        setActiveIndex((activeIndex + 1) % imageList.length);
-    };
+    const navigate = useNavigate()
+    const login = () => {
+        navigate('/user/login')
+    }
 
     return (
         <div>
             <div className="navBar containerCust">
                 <h1>E-MART</h1>
                 <div className="navIcons">
-                    <h2 className="navIcon">ACCOUNT</h2>
+                    <h2 className="navIcon"><a onClick={() => {login()} }>ACCOUNT</a> </h2>
                     <h2 className="navIcon">MENU</h2>
                 </div>
             </div>
@@ -92,8 +89,9 @@ const Index = () => {
                         <a><i className="bi bi-facebook"></i></a>
                     </div>
                     <div className="payment">
-                        <FontAwesomeIcon icon="fa-brands fa-twitter" />
-                        <i className="far fa-trash-alt"></i>
+                        <h5 >Accepted payment methods</h5>                        
+                        {/* <i className="fa fa-cc-mastercard" ></i> */}
+                        <i className="fas fa-pencil-alt"></i>
                     </div>
                 </div>
             </div>

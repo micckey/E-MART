@@ -20,12 +20,12 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="{{ asset('carousel/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('carousel/css/login.css') }}">
+    
     
 
     <title>E-MART</title>
     @viteReactRefresh
-    @vite(['resources/css/app.css', 'resources/js/app.jsx'])
+    @vite(['resources/css/app.css', 'resources/css/login.css', 'resources/js/app.jsx'])
 
 
 </head>

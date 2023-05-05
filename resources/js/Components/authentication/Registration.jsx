@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RegisterScreen = () => {
 
+    const navigate = useNavigate()
+    const login = () => {
+        navigate('/user/login')
+    }    
 
     const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -65,13 +70,16 @@ const RegisterScreen = () => {
                     </div>
 
 
-                    <a href="#">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        SIGN UP
-                    </a>
+                    <div className="buttonCont">
+                        <a href="#">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            SIGN UP
+                        </a>
+                        <div className="signAlt mt-auto" >or Log in <p onClick={() => { login() }}>here</p> </div>
+                    </div>
                 </form>
             </div>
         </div>

@@ -2,7 +2,7 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
-* { 
+* {
     margin: 0;
     padding: 0%;
     font-family: 'Alkatra' !important;
@@ -16,7 +16,7 @@ html {
 
 body {
     background: #5B8291;
-    
+
 }
 
 .containerCust {
@@ -40,7 +40,13 @@ body {
     margin-left: 1em;
 }
 
-.hotDeals{
+.logoCont{
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.hotDeals {
     margin-top: 20px;
     margin-bottom: 10px;
     text-align: center;
@@ -79,7 +85,7 @@ body {
 
 .btnBook {
     display: block;
-    object-position: center;    
+    object-position: center;
     width: fit-content;
     text-align: center;
     border: 1px solid blanchedalmond;
@@ -90,44 +96,54 @@ body {
     background: #080808;
     transition: background 0.5s;
 }
+
 .btnBook:hover {
     background: dimgray;
 }
 
-.containerCust .contactsContainer{
+@media only screen and (max-width: 600px) {
+    .btnBook {
+        padding: 1px 1px;
+        border-radius: 3px;
+        font-size: 11px;
+    }
+}
+
+.containerCust .contactsContainer {
     border-radius: 5px;
 }
 
-.contacts{    
+.contacts {
     background-color: #2E424D;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.desc{
+.desc {
     margin-left: 10px;
     flex-basis: 50%;
 }
 
-.socials{
+.socials {
     flex-basis: 15%;
 
 }
 
-.socials i{
+.socials i {
     font-size: xx-large;
 }
 
-.payment{
+.payment {
     margin-right: 10px;
-    flex-basis: 15%;    
+    flex-basis: 15%;
 }
-.payment h5{
+
+.payment h5 {
     text-align: center;
 }
 
-.homeButton{
+.homeButton {
     display: block;
     margin: 50px auto;
     width: fit-content;
@@ -140,6 +156,59 @@ body {
     background: #080808;
     transition: background 0.5s;
 }
+
 .homeButton:hover {
     background: dimgray;
+}
+
+/* ACCOUNT BUTTON */
+.mainMenuButton {
+    position: relative;
+    display: inline-block;
+}
+
+.mainMenuButton h2 {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mainMenuButton .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;    
+    z-index: 2;
+    background-color: #EAEBED;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 5px;
+}
+
+.logoCont .mainMenuButton .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;    
+    z-index: 2;
+    background-color: #EAEBED;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 5px;
+}
+
+.mainMenuButton .dropdownMenu button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #EAEBED;
+    color: #333 !important;
+    border: none;    
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.mainMenuButton .dropdownMenu button:hover {
+    background-color: #98DAD9;
 }

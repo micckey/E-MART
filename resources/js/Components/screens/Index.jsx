@@ -16,6 +16,21 @@ const Index = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
 
+    const [showMenu, setShowMenu] = useState(false);
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+    };
+
+    const [showMenu2, setShowMenu2] = useState(false);
+    const toggleMenu2 = () => {
+        setShowMenu2(!showMenu2);
+    };
+
+    const [showMenu3, setShowMenu3] = useState(false);
+    const toggleMenu3 = () => {
+        setShowMenu3(!showMenu3);
+    };
+
     const navigate = useNavigate()
     const login = () => {
         navigate('/user/login')
@@ -28,10 +43,53 @@ const Index = () => {
     return (
         <div>
             <div className="navBar containerCust">
-                <h1>E-MART</h1>
+                <div className="logoCont">
+                    <div className=" mainMenuButton">
+                        <h2 onClick={toggleMenu3}>
+                            <i className="bi bi-three-dots-vertical"></i>
+                        </h2>
+                        {showMenu3 && (
+                            <div className="dropdownMenu">
+                                <button >Be a seller</button>
+                                <button >Be a rider</button>
+                                <button >Get in touch</button>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="navIcon"><h1>E-MART</h1></div>
+                </div>
+
                 <div className="navIcons">
-                    <h2 className="navIcon"><a onClick={() => {login()} }>ACCOUNT</a> </h2>
-                    <h2 className="navIcon">MENU</h2>
+                    <div className="navIcon mainMenuButton">
+                        <h2 onClick={toggleMenu}>
+                            <i className="bi bi-person-fill"></i>
+                        </h2>
+                        {showMenu && (
+                            <div className="dropdownMenu">
+                                <button onClick={() => { login() }}>Sign In</button>
+                                <button onClick={() => { register() }}>Sign Up</button>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="navIcon mainMenuButton">
+                        <h2 onClick={toggleMenu2}>
+                            <i className="bi bi-list"></i>
+                        </h2>
+                        {showMenu2 && (
+                            <div className="dropdownMenu">
+                                <button >Appliances</button>
+                                <button >Computing</button>
+                                <button >Fashion</button>
+                                <button >Health and Beauty</button>
+                                <button >Phones and Tablets</button>
+                                <button >Supermarkets</button>
+                                <button >TV and Audio</button>
+                            </div>
+                        )}
+                    </div>
+
                 </div>
             </div>
 
@@ -93,9 +151,9 @@ const Index = () => {
                         <a><i className="bi bi-facebook"></i></a>
                     </div>
                     <div className="payment">
-                        <h5 >Accepted payment methods</h5>                        
-                        {/* <i className="fa fa-cc-mastercard" ></i> */}
-                        <i className="fas fa-pencil-alt"></i>
+                        <h5 >Accepted payment methods</h5>
+
+
                     </div>
                 </div>
             </div>

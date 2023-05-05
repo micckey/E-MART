@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
-const LoginScreen = () => {
+const LoginScreen = () => {    
+
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    function togglePasswordVisibility() {
+        setPasswordVisible((prevState) => !prevState);
+    }
+
     return (
         <div className="containerCust">
             <div className="login-box">
@@ -11,9 +18,23 @@ const LoginScreen = () => {
                         <input type="text" name="" required="" />
                             <label>Username</label>
                     </div>
-                    <div className="user-box">
-                        <input type="password" name="" required="" />
-                            <label>Password</label>
+                    <div className="passwordWrapper">
+                        <div className="user-box">
+                            <input
+                                type={passwordVisible ? 'text' : 'password'}
+                                id="password"
+                                name="password"
+                                required
+                            />
+
+                            <label htmlFor="password">Password</label>
+                            <div>
+                                <span
+                                    className={`toggle-password ${passwordVisible ? 'bi bi-eye-slash' : 'bi bi-eye'}`}
+                                    onClick={togglePasswordVisibility}
+                                ></span>
+                            </div>
+                        </div>
                     </div>
                     <a href="#">
                         <span></span>

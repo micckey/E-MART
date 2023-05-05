@@ -21,6 +21,10 @@ const Index = () => {
         navigate('/user/login')
     }
 
+    const register = () => {
+        navigate('user/register')
+    }
+
     return (
         <div>
             <div className="navBar containerCust">

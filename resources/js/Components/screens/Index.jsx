@@ -15,21 +15,17 @@ const Index = () => {
     ]
     const [activeIndex, setActiveIndex] = useState(0);
 
-
-    const [showMenu, setShowMenu] = useState(false);
-    const toggleMenu = () => {
-        setShowMenu(!showMenu);
+    const useToggleMenu = (initialState = false) => {
+        const [showMenu, setShowMenu] = useState(initialState);
+        const toggleMenu = () => {
+            setShowMenu(!showMenu);
+        };
+        return [showMenu, toggleMenu];
     };
+    const [showMenu, toggleMenu] = useToggleMenu(false);
+    const [showMenu2, toggleMenu2] = useToggleMenu(false);
+    const [showMenu3, toggleMenu3] = useToggleMenu(false);
 
-    const [showMenu2, setShowMenu2] = useState(false);
-    const toggleMenu2 = () => {
-        setShowMenu2(!showMenu2);
-    };
-
-    const [showMenu3, setShowMenu3] = useState(false);
-    const toggleMenu3 = () => {
-        setShowMenu3(!showMenu3);
-    };
 
     const navigate = useNavigate()
     const login = () => {
@@ -45,7 +41,7 @@ const Index = () => {
             <div className="navBar containerCust">
                 <div className="logoCont">
                     <div className=" mainMenuButton">
-                        <h2 onClick={toggleMenu3}>
+                        <h2 onClick={toggleMenu3} >
                             <i className="bi bi-three-dots-vertical"></i>
                         </h2>
                         {showMenu3 && (
@@ -62,7 +58,7 @@ const Index = () => {
 
                 <div className="navIcons">
                     <div className="navIcon mainMenuButton">
-                        <h2 onClick={toggleMenu}>
+                        <h2 onClick={toggleMenu} >
                             <i className="bi bi-person-fill"></i>
                         </h2>
                         {showMenu && (
@@ -74,7 +70,7 @@ const Index = () => {
                     </div>
 
                     <div className="navIcon mainMenuButton">
-                        <h2 onClick={toggleMenu2}>
+                        <h2 onClick={toggleMenu2} >
                             <i className="bi bi-list"></i>
                         </h2>
                         {showMenu2 && (

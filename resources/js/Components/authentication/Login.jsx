@@ -31,6 +31,9 @@ const LoginScreen = () => {
             })
         }).then((response) => {
             if (response.ok) {
+                response.json().then((data) => {
+                    localStorage.setItem('user', JSON.stringify(data.user))
+                })
                 // Redirect to login page on success
                 navigate('/dashboard')
             }

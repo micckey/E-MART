@@ -99,15 +99,6 @@ class AuthController extends Controller
         }
     }
 
-    public function user(Request $request)
-    {
-        // $user = Auth::user();
-
-        return response()->json([
-            'user' => $request->user()
-        ]);
-    }
-
     public function logout()
     {
 

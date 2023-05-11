@@ -29,11 +29,11 @@ const Index = () => {
 
     const navigate = useNavigate()
     const login = () => {
-        navigate('/user/login')
+        navigate('/login')
     }
 
     const register = () => {
-        navigate('user/register')
+        navigate('/register')
     }
 
     return (

@@ -5,6 +5,7 @@ import IndexPage from "../Components/screens/Index";
 import NotFound from "../Components/screens/Notfound";
 import Login from "../Components/authentication/Login";
 import Register from "../Components/authentication/Registration";
+import Dashboard from "../Components/screens/Dashboard";
 
 
 
@@ -13,8 +14,9 @@ const Router = () => {
         <div>
             <Routes>
                 <Route path="/" element={<IndexPage />} />
-                <Route path="/user/login" element={<Login />} />
-                <Route path="/user/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/*" element={<NotFound />} />                
             </Routes>
         </div>

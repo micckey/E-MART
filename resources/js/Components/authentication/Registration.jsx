@@ -21,6 +21,7 @@ const RegisterScreen = () => {
     const [phone, setPhone] = useState('');
     const [gender, setGender] = useState('');
     const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState([]);
 
     const submit = async (e) => {
         e.preventDefault();
@@ -35,7 +36,12 @@ const RegisterScreen = () => {
         }).then((response) => {
             if (response.ok) {
                 // Redirect to login page on success
-                redirect('/login')
+                navigate('/login')
+            }
+            else {
+                return response.json().then((data) => {
+                    setErrors(data.errors)
+                });
             }
         });
     }
@@ -47,6 +53,13 @@ const RegisterScreen = () => {
         <div className="containerCust">
             <div className="login-box">
                 <h2>Register</h2>
+                {errors.length > 0 && (
+                    <div className="alert">
+                        {errors.map((error, index) => (
+                            <p key={index}>{error}</p>
+                        ))}
+                    </div>
+                )}
                 <form onSubmit={submit}>
                     <div className="user-box">
                         <input type="text" name="" required onChange={e => setFName(e.target.value)} />

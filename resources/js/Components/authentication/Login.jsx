@@ -25,13 +25,14 @@ const LoginScreen = () => {
         await fetch('/api/user/login', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({
                 email, password
             })
         }).then((response) => {
             if (response.ok) {
                 // Redirect to login page on success
-                return redirect('/dashboard')
+                navigate('/dashboard')
             }
             else {
                 return response.json().then((data) => {

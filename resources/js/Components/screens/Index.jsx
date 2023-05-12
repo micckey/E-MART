@@ -40,7 +40,7 @@ const Index = () => {
         <div>
             <div className="navBar containerCust">
                 <div className="logoCont">
-                    <div className=" mainMenuButton">
+                    <div className="my-auto mainMenuButton">
                         <h2 onClick={toggleMenu3} >
                             <i className="bi bi-three-dots-vertical"></i>
                         </h2>

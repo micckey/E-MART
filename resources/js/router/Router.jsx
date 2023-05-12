@@ -6,6 +6,7 @@ import NotFound from "../Components/screens/Notfound";
 import Login from "../Components/authentication/Login";
 import Register from "../Components/authentication/Registration";
 import Dashboard from "../Components/screens/Dashboard";
+import Newproduct from "../Components/screens/NewProduct";
 
 
 
@@ -17,6 +18,7 @@ const Router = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/new/product" element={<Newproduct />} />
                 <Route path="/*" element={<NotFound />} />                
             </Routes>
         </div>

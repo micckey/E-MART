@@ -36,6 +36,10 @@ const Index = () => {
         navigate('/register')
     }
 
+    const newProduct = () => {
+        navigate('/new/product')
+    }
+
     return (
         <div>
             <div className="navBar containerCust">
@@ -46,7 +50,7 @@ const Index = () => {
                         </h2>
                         {showMenu3 && (
                             <div className="dropdownMenu">
-                                <button >Be a seller</button>
+                                <button onClick={() => {newProduct()}}>Be a seller</button>
                                 <button >Be a rider</button>
                                 <button >Get in touch</button>
                             </div>

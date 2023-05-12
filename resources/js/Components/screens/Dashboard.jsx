@@ -20,6 +20,10 @@ const DashboardScreen = () => {
     ]
     const [activeIndex, setActiveIndex] = useState(0);
 
+    const newProduct = () => {
+        redirect('/new/product')
+    }
+
     const useToggleMenu = (initialState = false) => {
         const [showMenu, setShowMenu] = useState(initialState);
         const toggleMenu = () => {
@@ -56,7 +60,7 @@ const DashboardScreen = () => {
                         </h2>
                         {showMenu3 && (
                             <div className="dropdownMenu">
-                                <button >Be a seller</button>
+                                <button onClick={() => {newProduct()}}>Be a seller</button>
                                 <button >Be a rider</button>
                                 <button >Get in touch</button>
                             </div>

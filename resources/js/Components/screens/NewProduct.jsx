@@ -1,6 +1,67 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Newproduct = () => {
+
+    const navigate = useNavigate();
+
+    const [name, setName] = useState('');
+    const [description, setDescripton] = useState('');
+    const [category, setCategory] = useState('');
+    const [availability, setAvailability] = useState('');
+    const [price, setPrice] = useState('');
+    const [image, setImage] = useState(null);
+    const [sellersId, setSellersID] = useState('');
+
+    // Add image file handler
+    const changeHandler = (e) => {
+        let file = e.target.files[0]
+        let reader = new FileReader()
+        let limit = 1024 * 1024 * 2
+        if (file['size'] > limit) {
+            Swal.fire({
+                type: 'error',
+                title: 'Ooops...',
+                text: 'Something went wrong',
+                footer: 'Why do I have this issue? '
+            })
+        }
+        reader.onloadend = (file) => {
+            setImage(reader.result)
+        }
+        reader.readAsDataURL(file)
+    }
+
+    // Post request to create product
+    const createProduct = async (e) => {
+        e.preventDefault()
+
+        const formData = new FormData()
+
+        formData.append('Products_name', name)
+        formData.append('products_description', description)
+        formData.append('Products_image', image)
+        formData.append('Products_category', category)
+        formData.append('Products_availability', availability)
+        formData.append('Products_price', price)
+        // formData.append('Sellers_Sellers_id', 4)
+
+
+        await axios.post('/api/addProduct/', formData)
+            .then(({ data }) => {
+                toast.fire({
+                    icon: 'success',
+                    title: 'Product added successfully'
+                })
+                navigate('/dashboard')
+            })
+            .catch(({ response }) => {
+                console.log(response);
+            })
+    }
+
+
     return (
         <div>
             <div className="container">
@@ -19,21 +80,21 @@ const Newproduct = () => {
                         <div className="left">
                             <div className="card">
                                 <p>Name</p>
-                                <input type="text" />
+                                <input type="text" value={name} onChange={(event) => { setName(event.target.value) }} />
                                 <p>Description (Optional)</p>
-                                <textarea cols="10" rows="5" ></textarea>
+                                <textarea cols="10" rows="5" value={description} onChange={(event) => { setDescripton(event.target.value) }}></textarea>
 
                                 <div className="media">
                                     <ul className="imageList">
                                         <li className="imageItem">
                                             <div className="imgItem">
-                                                <img alt="" width='117px' height='100px' />
+                                                <img src={image} alt="" width='117px' height='100px' />
                                             </div>
                                         </li>
                                         <li className="imageItem">
                                             <form className="itemForm">
                                                 <label className="formLabel">Add Image</label>
-                                                <input type="file" className="formInput" />
+                                                <input type="file" className="formInput" onChange={changeHandler} />
                                             </form>
                                         </li>
                                     </ul>
@@ -42,22 +103,35 @@ const Newproduct = () => {
                         </div>
                         <div className="right">
                             <div className="card">
+
                                 <p>Category</p>
-                                <input type="text" />
+                                <div className="selectBox">
+                                    <select name="" value={category} onChange={(event) => { setCategory(event.target.value) }}>
+                                        <option value="">Select category  </option>
+                                        <option value="Appliances ">Appliances</option>
+                                        <option value="Computing">Computing</option>
+                                        <option value="Fashion">Fashion</option>
+                                        <option value="Health n Beauty">Health n Beauty</option>
+                                        <option value="Phones n Tablets">Phones n Tablets</option>
+                                        <option value="Supermarkets">Supermarkets</option>
+                                        <option value="TV and Audio">Fashion</option>
+                                    </select>
+                                </div>
+
                                 <hr />
 
                                 <p>Stock</p>
-                                <input type="text" />
+                                <input type="text" value={availability} onChange={(event) => { setAvailability(event.target.value) }} />
                                 <hr />
 
                                 <p>Price</p>
-                                <input type="text" />
+                                <input type="text" value={price} onChange={(event) => { setPrice(event.target.value) }} />
                                 <hr />
 
                             </div>
                         </div>
 
-                        <button className="btn " >
+                        <button className="btn " onClick={(event) => createProduct(event)}>
                             Save
                         </button>
 

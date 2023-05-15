@@ -88,8 +88,6 @@ const RegisterScreen = () => {
                                 <option value="Prefer not to say">Prefer not to say</option>
                             </select>
                         </div>
-
-
                     </div>
 
                     <div className="passwordWrapper">

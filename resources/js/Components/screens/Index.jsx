@@ -36,10 +36,6 @@ const Index = () => {
         navigate('/register')
     }
 
-    const newProduct = () => {
-        navigate('/new/product')
-    }
-
     return (
         <div>
             <div className="navBar containerCust">
@@ -50,7 +46,7 @@ const Index = () => {
                         </h2>
                         {showMenu3 && (
                             <div className="dropdownMenu">
-                                <button onClick={() => {newProduct()}}>Be a seller</button>
+                                <button >Be a seller</button>
                                 <button >Be a rider</button>
                                 <button >Get in touch</button>
                             </div>
@@ -126,7 +122,7 @@ const Index = () => {
                 <h2 className="hotDeals">CATEGORIES</h2>
                 <div className="card-container">
                     {imageList.map((image, index) => (
-                        <div className="card" key={index}>
+                        <div className="cardItem" key={index}>
                             <img src={image} alt={`Slide ${index + 1}`} />
                             <h4>IMAGE</h4>
                             <a href="/login" className="btnBook mx-auto mt-auto" >ORDER NOW</a>

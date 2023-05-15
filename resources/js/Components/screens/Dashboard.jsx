@@ -18,10 +18,9 @@ const DashboardScreen = () => {
         'https://api.priceinkenya.com/media/122794/conversions/infinix-tv-s1-43-inch-full-hd-smart-UOZipv6v5C-original.webp',
         'https://nairobiultrabooks.odoo.com/web/image/product.template/1419/image_1024?unique=f506020'
     ]
-    const [activeIndex, setActiveIndex] = useState(0);
-
+    
     const newProduct = () => {
-        redirect('/new/product')
+        navigate('/new/product')
     }
 
     const useToggleMenu = (initialState = false) => {
@@ -136,7 +135,7 @@ const DashboardScreen = () => {
                 <h2 className="hotDeals">CATEGORIES</h2>
                 <div className="card-container">
                     {imageList.map((image, index) => (
-                        <div className="card" key={index}>
+                        <div className="cardItem" key={index}>
                             <img src={image} alt={`Slide ${index + 1}`} />
                             <h4>IMAGE</h4>
                             <a href="/login" className="btnBook mx-auto mt-auto" >ORDER NOW</a>

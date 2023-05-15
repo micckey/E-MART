@@ -61,7 +61,7 @@ body {
     margin-top: 20px;
 }
 
-.card {
+.cardItem {
     width: 30%;
     margin-bottom: 20px;
     border: 1px solid #EAEBED;
@@ -69,12 +69,12 @@ body {
     padding: 10px;
 }
 
-.card img {
+.cardItem img {
     width: 100%;
     border-radius: 5px;
 }
 
-.card h4 {
+.cardItem h4 {
     color: #080808 !important;
     margin-top: 10px;
     font-size: 18px;
@@ -261,13 +261,25 @@ p {
 }
 
 .card,
-input {
+.card input {
     padding: 9px 15px;
     border: 1px solid #2E424D;
     border-radius: 4px;
     width: 100%;
     color: #080808 !important;
 }
+
+.right .card .selectBox{
+    margin-left: 0px;
+    padding: 9px 15px;
+    background: white;
+    border: 1px solid #2E424D;
+    border-radius: 4px;
+    width: 100%;    
+}
+.right .card .selectBox select  {
+    color: #080808 !important;
+  }
 
 .card,
 textarea {

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/user/register', [AuthController::class, 'register']);
-Route::post('/user/login', [AuthController::class, 'login']);
+Route::post('/user/login', [AuthController::class, 'login'])->name('login');
 
-Route::middleware('auth.api')->group(function () {    
-    Route::post('/addProduct', [ProductController::class, 'addproducts']);
-    Route::post('/user/logout', [AuthController::class, 'logout']);
-});
+// Route::middleware('auth.api')->group(function () {    
+//     Route::post('/addProduct', [ProductController::class, 'addproducts']);
+//     Route::post('/user/logout', [AuthController::class, 'logout']);
+// });
+
+Route::post('/add_product', [ProductController::class, 'addproducts']);

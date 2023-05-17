@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 
 const DashboardScreen = () => {
 
@@ -43,7 +43,7 @@ const DashboardScreen = () => {
             credentials: 'include'
         }).then((response) => {
             if (response.ok) {
-                navigate('/login')
+                return redirect('/login')
             }
         })
     }

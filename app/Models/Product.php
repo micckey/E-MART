@@ -13,13 +13,12 @@ class Product extends Model
     protected $fillable = [
         'Products_name',
         'Products_description',
-        'Products_category',
-        'Products_price',
+        'Products_category',        
         'Products_availability',
         'Products_price',
         'Products_image',
         'Sellers_Sellers_id',
     ];
-    protected $primaryKey = 'Product_id';
+    protected $primaryKey = 'Products_id';
     public $timestamps = false;
 }

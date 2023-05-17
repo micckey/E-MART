@@ -29,7 +29,7 @@ const Index = () => {
 
     const navigate = useNavigate()
     const login = () => {
-        navigate('/login')
+        navigate('/dashboard')
     }
 
     const register = () => {

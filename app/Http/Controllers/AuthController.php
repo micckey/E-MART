@@ -80,8 +80,13 @@ class AuthController extends Controller
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        return response('Unauthorized.', Response::HTTP_UNAUTHORIZED);
+        // return response('Unauthorized.', Response::HTTP_UNAUTHORIZED);
+        $cookie = Cookie::forget('jwt');
+
+        return response([
+            'message' => 'Success'
+        ])->withCookie($cookie);
     }
 }

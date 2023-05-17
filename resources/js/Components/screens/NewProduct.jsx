@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Newproduct = () => {
@@ -35,31 +35,35 @@ const Newproduct = () => {
 
     // Post request to create product
     const createProduct = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        const formData = new FormData()
+        try {
+            const response = await axios.post('/api/add_product', {
+                'name': name,
+                'description': description,
+                'image': image,
+                'category': category,
+                'availability': availability,
+                'price': price,
+                'sellerID': sellersId
+            });
 
-        formData.append('Products_name', name)
-        formData.append('products_description', description)
-        formData.append('Products_image', image)
-        formData.append('Products_category', category)
-        formData.append('Products_availability', availability)
-        formData.append('Products_price', price)
-        // formData.append('Sellers_Sellers_id', 4)
-
-
-        await axios.post('/api/addProduct/', formData)
-            .then(({ data }) => {
-                toast.fire({
-                    icon: 'success',
-                    title: 'Product added successfully'
-                })
-                navigate('/dashboard')
+            console.log(response.data.message);
+            toast.fire({
+                icon: 'success',
+                title: 'Product added successfully'
             })
-            .catch(({ response }) => {
-                console.log(response);
-            })
-    }
+            // navigate('/dashboard')
+            // Handle success response here
+
+        } catch (error) {
+            console.log(error);
+            // Handle error response here
+        }
+    };
+
+
+
 
 
     return (
@@ -126,6 +130,11 @@ const Newproduct = () => {
 
                                 <p>Price</p>
                                 <input type="text" value={price} onChange={(event) => { setPrice(event.target.value) }} />
+                                <hr />
+
+
+                                <p>Seller</p>
+                                <input type="text" value={sellersId} onChange={(event) => { setSellersID(event.target.value) }} />
                                 <hr />
 
                             </div>

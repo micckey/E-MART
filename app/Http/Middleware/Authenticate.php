@@ -14,20 +14,34 @@ class Authenticate extends Middleware
     /**
      * Get the path the user should be redirected to when they are not authenticated.
      */
-    // protected function redirectTo(Request $request): ?string
+    protected function redirectTo(Request $request): ?string
+    {
+        return $request->expectsJson() ? null : route('login');
+    }
+
+    // public function handle($request, Closure $next, ...$guards)
     // {
-    //     return $request->expectsJson() ? null : route('login');
+    //     if ($this->auth->guard(...$guards)->guest()) {            
+    //         $cookie = Cookie::forget('jwt');
+    //         return response([
+    //             'message' => 'Success'
+    //         ], Response::HTTP_OK)->withCookie($cookie);
+    //     }
+    
+    //     return $next($request);
     // }
 
     public function handle($request, Closure $next, ...$guards)
     {
-        if ($this->auth->guard(...$guards)->guest()) {            
-            $cookie = Cookie::forget('jwt');
-            return response([
-                'message' => 'Success'
-            ], Response::HTTP_OK)->withCookie($cookie);
+        if ($jwt = $request->cookie('jwt')){
+            $request->headers->set('Authorization', 'Bearer' . $jwt);
         }
-    
+
+        $this->authenticate($request, $guards);
+
         return $next($request);
     }
+
+
+
 }

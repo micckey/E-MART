@@ -25,4 +25,6 @@ Route::post('/user/login', [AuthController::class, 'login'])->name('login');
 //     Route::post('/user/logout', [AuthController::class, 'logout']);
 // });
 
+Route::get('/get_products', [ProductController::class, 'getProducts']);
 Route::post('/add_product', [ProductController::class, 'addproducts']);
+

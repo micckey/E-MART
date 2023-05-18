@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Slider from "../slider/Slider";
 
 
 
@@ -8,12 +10,44 @@ import { useNavigate } from "react-router-dom";
 const Index = () => {
 
     const imageList = [
-        'https://www.appleprice.co.ke/img/products/32/1666880524_1.jpg',
-        'https://www.everythingreps.org/wp-content/uploads/2022/11/Air-Jordan-1-Retro-Low-OG-Zion-Williamson-Voodoo-Product.jpg',
-        'https://api.priceinkenya.com/media/122794/conversions/infinix-tv-s1-43-inch-full-hd-smart-UOZipv6v5C-original.webp',
-        'https://nairobiultrabooks.odoo.com/web/image/product.template/1419/image_1024?unique=f506020'
+        // 'https://www.appleprice.co.ke/img/products/32/1666880524_1.jpg',
+        // 'https://www.everythingreps.org/wp-content/uploads/2022/11/Air-Jordan-1-Retro-Low-OG-Zion-Williamson-Voodoo-Product.jpg',
+        // 'https://api.priceinkenya.com/media/122794/conversions/infinix-tv-s1-43-inch-full-hd-smart-UOZipv6v5C-original.webp',
+        // 'https://nairobiultrabooks.odoo.com/web/image/product.template/1419/image_1024?unique=f506020',    
+        "upload/1684348971.jpeg",
+        "upload/1684348863.jpeg",
+        "upload/1684343367.jpeg",
+        "upload/1684343121.jpeg",
     ]
-    const [activeIndex, setActiveIndex] = useState(0);
+
+    const [products, setproducts] = useState([]);
+    useEffect(() => {
+        getProducts()
+    }, [])
+    const getProducts = async () => {
+        await axios.get('/api/get_products')
+            .then(({ data }) => {
+                setproducts(data.products)
+                localStorage.setItem('products', JSON.stringify(data.products))
+            })
+    }
+
+    // useEffect(() => {
+    //     const fetchImages = async () => {
+    //         try {
+    //             const response = await fetch('/api/get_products');
+    //             const data = await response.json();
+    //             setproducts(data.products);
+    //         } catch (error) {
+    //             console.error('Error fetching images:', error);
+    //         }
+    //     };
+
+    //     fetchImages();
+    // }, []);
+
+
+
 
     const useToggleMenu = (initialState = false) => {
         const [showMenu, setShowMenu] = useState(initialState);
@@ -89,45 +123,21 @@ const Index = () => {
                 </div>
             </div>
 
-
-            <div className='containerCust'>
-                <div className="owl-2-style">
-                    <h2 className="hotDeals">HOT DEALS!!!</h2>
-                    <div className="owl-carousel owl-2">
-                        {imageList.map((image, index) => (
-                            <div className="media-29101" key={index}>
-                                <a href="#"><img src={image} alt={`Slide ${index + 1}`} className="img-fluid" /></a>
-                                <h3><a href="#">IMAGE</a></h3>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            <div className="containerCust">
-                <div className="owl-2-style">
-                    <h2 className="hotDeals">NEW ARRIVALS</h2>
-                    <div className="owl-carousel owl-2">
-                        {imageList.map((image, index) => (
-                            <div className="media-29101" key={index}>
-                                <a href="#"><img src={image} alt={`Slide ${index + 1}`} className="img-fluid" /></a>
-                                <h3><a href="#">IMAGE</a></h3>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+            <Slider />
 
             <div className="containerCust">
                 <h2 className="hotDeals">CATEGORIES</h2>
                 <div className="card-container">
-                    {imageList.map((image, index) => (
-                        <div className="cardItem" key={index}>
-                            <img src={image} alt={`Slide ${index + 1}`} />
-                            <h4>IMAGE</h4>
-                            <a href="/login" className="btnBook mx-auto mt-auto" >ORDER NOW</a>
-                        </div>
-                    ))}
+                    {products.length > 0 && (
+                        products.map((image, index) => (
+                            <div className="cardItem" key={index}>
+                                <h4>{image.Products_category}</h4>
+                                <img src={`/upload/${image.Products_image}`} alt={`Slide ${index + 1}`} />
+                                <h4>{image.Products_name}</h4>
+                                <a href="/login" className="btnBook mx-auto mt-auto" >ORDER NOW</a>
+                            </div>
+                        ))
+                    )}
                 </div>
             </div>
 

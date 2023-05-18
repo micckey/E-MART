@@ -75,7 +75,7 @@ body {
 }
 
 .cardItem h4 {
-    color: #080808 !important;
+    font-weight: 900;
     margin-top: 10px;
     font-size: 18px;
     line-height: 1.5;

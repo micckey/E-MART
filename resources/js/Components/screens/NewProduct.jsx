@@ -53,8 +53,9 @@ const Newproduct = () => {
                 icon: 'success',
                 title: 'Product added successfully'
             })
-            // navigate('/dashboard')
-            // Handle success response here
+            
+            navigate('/dashboard')
+            
 
         } catch (error) {
             console.log(error);
